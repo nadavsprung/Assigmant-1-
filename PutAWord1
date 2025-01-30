@@ -1,0 +1,46 @@
+public class PutAWord {
+
+
+    private Node<Node<Character>> words;
+
+    public PutAWord(Node<Node<Character>> words) {
+        this.words = null;
+    }
+
+    public boolean addWord(String word){
+
+        Node<Node<Character>> pos=this.words;
+        while(pos.hasNext()){
+           pos=pos.getNext();
+
+        }
+        Node<Character> pos2=pos.getValue();
+        while (pos2.hasNext()) {
+            pos2=pos2.getNext();
+        }
+        char lastchar= pos2.getValue();
+
+        char firstLetter=word.charAt(0);
+
+        if(firstLetter==lastchar){
+           Node<Character> newchar=new Node<Character>(firstLetter);
+           Node<Character>pos3=newchar;
+           Node<Character>p;
+
+           for (int i = 0; i < word.length(); i++) {
+            p=new Node<Character>(word.charAt(i));
+            pos3.setNext(p);
+            pos3=pos3.getNext();
+            }
+
+           pos.setNext(newchar);
+           return true;
+        }
+
+
+
+        return false;
+    }
+
+
+}
