@@ -1,0 +1,30 @@
+public class PutAWord {
+
+
+    private Node<Node<Character>> words;
+
+    public PutAWord(Node<Node<Character>> words) {
+        this.words = null;
+    }
+
+    public boolean addWord(String word) {
+
+        Node<Node<Character>> pos = this.words;
+        while (pos.hasNext()) {
+            pos = pos.getNext();
+
+        }
+        char lastchar=getLastLetter(pos.getValue());
+        char firstletter=word.charAt(0);
+
+        if (lastchar!=firstletter){
+        return false;
+
+                Node<Character> newchar=StringToNode(word);
+        pos.setNext(newchar);
+        return true;
+
+        }
+    }
+
+
